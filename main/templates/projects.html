@@ -1,0 +1,19 @@
+{% extends 'main.html' %}
+{% load staticfiles %}
+{% block main_page %}
+<div class="uk-container">
+ <div class="uk-text-center uk-animation-scale-down">
+    {% for project in projects%}
+        <div class="uk-inline-clip uk-transition-toggle">
+            <img src="{% static "images/projects" %}/{{ project.project_image}}">
+            <div class="uk-transition-fade uk-position-cover uk-position-small uk-overlay uk-overlay-default ">
+                <p class="uk-h2 uk-text-bold uk-margin-remove">{{ project.project_title }}</p>
+                <p class="uk-margin-remove">{{ project.project_description }}</p>
+            </div>
+        </div>
+    {% endfor %}
+ </div>
+
+
+</div>
+{% endblock %}
