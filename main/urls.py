@@ -5,6 +5,7 @@ urlpatterns =[
     url(r'^$', views.main_page),
     url(r'^portfolio/$', views.portfolio),
     url(r'^projects/$', views.project),
-    url(r'^contacts/$', views.contacts)
+    url(r'^contacts/$', views.contacts),
+    url(r'^send/$', views.sendemail)
 
 ]

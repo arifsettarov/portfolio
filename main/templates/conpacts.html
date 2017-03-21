@@ -1,18 +1,18 @@
 {% extends 'main.html' %}
 {% load staticfiles %}
 {% block main_page%}
-    <div class="uk-container">
-<div class="uk-grid-collapse uk-animation-scale-up">
-    <div class="uk-grid">
-    <div>
-        <h3>Адрес:</h3>
-        <p>
-           р-н Бахчисарайский <br>
-           с. Трудолюбовка <br>
-           ул. Мусы-Мамута, д. 7
-        </p>
-    </div>
-    <div>
+<div class="uk-container">
+    <div class="uk-grid-collapse uk-animation-scale-up">
+        <div class="uk-grid">
+        <div style="width: 400px;">
+            <h3>Адрес:</h3>
+            <p>
+               р-н Бахчисарайский <br>
+               с. Трудолюбовка <br>
+               ул. Мусы-Мамута, д. 7
+            </p>
+        </div> {# Адрес #}
+        <div>
         <h3>Контакты:</h3>
         <div class="uk-grid uk-margin-small">
             <div class="uk-padding-remove ">
@@ -54,26 +54,31 @@
                 </a>
             </div>
         </div>
-        </div>
+        </div>{# Контакты #}
 
-    </div>
+        </div>
     <div class="uk-grid">
         <div>
             <h3>Карта:</h3>
             <script type="text/javascript" charset="utf-8" async
-                    src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=6vVFPtofoshipDWdTdbTOI7btOXqJLyY&amp;width=450&amp;height=450&amp;
+                    src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=6vVFPtofoshipDWdTdbTOI7btOXqJLyY&amp;width=400&amp;height=400&amp;
                     lang=ru_RU&amp;sourceType=constructor&amp;scroll=true">
 
             </script>
 
-        </div>
-        <div>
-                    <input class="uk-input uk-margin-small" type="text" placeholder="ФИО">
-                    <input class="uk-input uk-margin-small" type="email" placeholder="E-mail">
-                    <textarea class="uk-textarea uk-margin-small" rows="5" placeholder="Сообщение"></textarea>
+        </div>{# Карта #}
+        <div class="uk-grid">
+            {% csrf_token %}
+                <form action="/send/" class="uk-form-width-large" method="post">
+                    <h3>Написать мне:</h3>
+                    {% csrf_token %}
+                    {{ form.name }}
+                    {{ form.email }}
+                    {{ form.text }}
                     <input class="uk-button uk-margin" type="submit" value="Отправить" style="">
+                </form>
 
-        </div>
+        </div> {# Написать #}
     </div>
 </div>
 </div>

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 #!C:/Users/arif/AppData/Local/Programs/Python/Python35-32/python.exe
 from django.db import models
 
@@ -11,3 +12,10 @@ class projects(models.Model):
     project_description=models.TextField(verbose_name="Описание")
     project_image=models.ImageField(verbose_name="Изображение (500х500)")
     project_url=models.URLField(verbose_name="GitHub URL")
+
+class email(models.Model):
+    class Meta:
+        db_table="email"
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    text = models.TextField()
